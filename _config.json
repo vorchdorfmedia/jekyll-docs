@@ -1,0 +1,82 @@
+{
+  "global": {
+    "source": "./",
+    "destination": "_site",
+    "metadata": {
+      "name": "Jekyll • Simple, blog-aware, static sites",
+      "description": "Transform your plain text into static websites and blogs",
+      "repository": "https://github.com/vorchdorfmedia/jekyll-docs",
+      "url": "http://localhost:8080"
+    },
+    "ignore": [
+      "README.md",
+      ".gitignore",
+      "_config.yml",
+      "_config.json",
+      "metalsmith.json",
+      "_data/**/*",
+      "_site/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "date-in-filename": {
+    "override": true
+  },
+  "assets": {
+    "source": "_public",
+    "destination": "./"
+  },
+  "sass": {
+    "outputDir": "css",
+    "outputStyle": "compressed",
+    "sourceMap": true,
+    "file": "screen.scss"
+  },
+  "markdown": {
+    "smartyPants": true
+  },
+  "collections": {
+    "blog": {
+      "pattern": "_posts/**/*.html"
+    },
+    "docs": {
+      "pattern": "_docs/**/*.html"
+    }
+  },
+  "permalinks": {
+    "relative": false,
+    "date": "YYYY/MM/DD",
+    "linksets": [{
+      "match": {
+        "collection": "blog"
+      },
+      "pattern": "blog/:date/:title"
+    }, {
+      "match": {
+        "collection": "docs"
+      },
+      "pattern": "docs/:title"
+    }, {
+      "match": {
+        "collection": "tutorials"
+      },
+      "pattern": "tutorials/:title"
+    }]
+  },
+  "layouts": {
+    "depends": [
+      "tinyliquid"
+    ],
+    "engine": "liquid",
+    "default": "default.html",
+    "directory": "_layouts",
+    "partials": "_includes",
+    "partialExtension": "html",
+    "rename": true,
+    "pattern": [
+      "./**/*.md",
+      "./**/*.html",
+      "!node_modules/**/*"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+---
+layout: default.html
+---
+
+  <section class="news">
+    <div class="grid">
+
+      {% include "_includes/news_contents_mobile.html" %}
+
+      <div class="unit four-fifths">
+        {{ contents }}
+      </div>
+
+      {% include "_includes/news_contents.html" %}
+
+      <div class="clear"></div>
+
+    </div>
+  </section>

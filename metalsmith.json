@@ -1,0 +1,88 @@
+{
+  "source": "_src",
+  "destination": "_site",
+  "metadata": {
+    "name": "Jekyll • Simple, blog-aware, static sites",
+    "description": "Transform your plain text into static websites and blogs",
+    "repository": "https://github.com/vorchdorfmedia/jekyll-docs",
+    "url": "http://localhost:8080"
+  },
+  "ignore": [
+    "README.md",
+    ".gitignore",
+    "_config.yml",
+    "_config.json",
+    "metalsmith.json",
+    "_data/**/*",
+    "_site/**/*",
+    "node_modules/**/*"
+  ],
+  "plugins": {
+    "metalsmith-date-in-filename": {
+      "override": true
+    },
+    "metalsmith-assets": {
+      "source": "_public",
+      "destination": "./"
+    },
+    "metalsmith-sass": {
+      "outputDir": "css",
+      "outputStyle": "compressed",
+      "sourceMap": true,
+      "file": "screen.scss"
+    },
+    "metalsmith-markdown": {
+      "smartyPants": true
+    },
+    "metalsmith-collections": {
+      "blog": {
+        "pattern": "_posts/**/*.html",
+        "sortBy": "date",
+        "reverse": true
+      },
+      "docs": {
+        "pattern": "_docs/**/*.html"
+      },
+      "tutorials": {
+        "pattern": "_tutorials/**/*.html"
+      }
+    },
+    "metalsmith-permalinks": {
+      "relative": false,
+      "date": "YYYY/MM/DD",
+      "linksets": [{
+        "match": {
+          "collection": "blog"
+        },
+        "pattern": "blog/:date/:title"
+      }, {
+        "match": {
+          "collection": "docs"
+        },
+        "pattern": "docs/:title"
+      }, {
+        "match": {
+          "collection": "tutorials"
+        },
+        "pattern": "tutorials/:title"
+        }]
+    },
+    "metalsmith-layouts": {
+      "depends": [
+        "tinyliquid"
+      ],
+      "engine": "liquid",
+      "default": "default.html",
+      "directory": "_layouts",
+      "partials": "_includes",
+      "partialExtension": "html",
+      "rename": true,
+      "pattern": [
+        "**/*.html",
+        "**/*.md",
+        "!node_modules/**/*.html",
+        "!node_modules/**/*.md"
+      ]
+    }
+  }
+}
