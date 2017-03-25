@@ -37,10 +37,15 @@
   },
   "collections": {
     "blog": {
-      "pattern": "_posts/**/*.html"
+      "pattern": "_posts/**/*.html",
+      "sortBy": "date",
+      "reverse": true
     },
     "docs": {
       "pattern": "_docs/**/*.html"
+    },
+    "tutorials": {
+      "pattern": "_tutorials/**/*.html"
     }
   },
   "permalinks": {
@@ -61,7 +66,7 @@
         "collection": "tutorials"
       },
       "pattern": "tutorials/:title"
-    }]
+      }]
   },
   "layouts": {
     "depends": [
@@ -74,9 +79,10 @@
     "partialExtension": "html",
     "rename": true,
     "pattern": [
-      "./**/*.md",
-      "./**/*.html",
-      "!node_modules/**/*"
+      "**/*.html",
+      "**/*.md",
+      "!node_modules/**/*.html",
+      "!node_modules/**/*.md"
     ]
   }
 }
