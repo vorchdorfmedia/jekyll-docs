@@ -1,6 +1,6 @@
 {
   "global": {
-    "source": "./",
+    "source": "_src",
     "destination": "_site",
     "metadata": {
       "name": "Jekyll • Simple, blog-aware, static sites",
