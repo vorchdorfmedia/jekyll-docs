@@ -1,7 +1,6 @@
----
-layout: news.html
----
 
+{% extends "_layouts/news.html" %}
+{% block contents %}
 <article>
   <h2>
     {{ page.title }}
@@ -25,3 +24,4 @@ layout: news.html
     {{ contents }}
   </div>
 </article>
+{% endblock %}
